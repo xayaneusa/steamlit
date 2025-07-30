@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AUTH LETTER</title>
+
+      <style>
+    body {
+      margin: 0; /* remove default margins */
+    }
+
+    .full-line {
+      width: 100vw;              /* full viewport width */
+      height: 2px;               /* thickness of the line */
+      background-color: black;
+    }
+    
+  </style>
+
+    
+    <style type="text/css">
+        @page {
+            size: A4;
+            margin: 50px;
+        }
+        body {
+            font-family: Calibri, sans-serif;
+            font-size: 18pt;
+            line-height: 1.6;
+        }
+        .top-right {
+            text-align: right;
+        }
+        .centered {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+            font-size: 27pt;
+            margin: 20px 0;
+        }
+        .red {
+            color: #EC0000;
+            text-decoration: underline;
+            font-size: 35pt;
+        }
+        .blue {
+            color: #001F5F;
+            text-decoration: underline;
+            font-size: 22pt;
+        }
+        ol {
+            counter-reset: item;
+            margin-left: 30pt;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="top-right">
+        Mob: {{ mobile }}
+    </div>
+
+    <div class="centered">
+        <div class="red">{{ firm_name }}</div>
+        <div class="blue">{{ firm_address }}</div>
+    </div>
+
+    <p style="text-align: center; padding: 6pt;">
+        <div class="full-line"></div>
+
+
+    </p>
+    <br>
+
+    <div style="display: flex; justify-content: space-between; margin: 10pt 10px;">
+    Ref. No………………………………&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+    Date:…………………………………
+</div>
+
+
+    <h1>Authority Letter</h1>
+
+    <p style="padding-left: 20pt;">I, {{ owner_name }} S/o {{ father_name }} R/o {{ residence }}.</p>
+
+    <p style="padding-left: 20pt; margin-top: 12pt;"><strong>I UNDERTAKE THAT:</strong></p>
+
+    <ol>
+        <li>I am the sole Proprietor of <strong>{{ firm_name }}</strong>, {{ firm_address }}.</li>
+        <li>I am only authorized signatory of <strong>{{ firm_name }}</strong>.</li>
+        <li>There is no other authorized signatory of <strong>{{ firm_name }}</strong>.</li>
+    </ol>
+
+</body>
+</html>
