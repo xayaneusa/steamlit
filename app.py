@@ -3,8 +3,8 @@ from jinja2 import Template
 from xhtml2pdf import pisa
 import io
 
-# === Streamlit UI ===
-st.title("📝 Authority Letter Generator")
+# === Form ===
+st.title("Authority Letter Generator")
 
 firm_name = st.text_input("Firm Name")
 firm_address = st.text_input("Firm Address")
@@ -29,17 +29,9 @@ if st.button("Generate PDF"):
         residence=residence
     )
 
-    # === Generate PDF ===
+    # === Convert HTML to PDF ===
     pdf_buffer = io.BytesIO()
-    pisa_status = pisa.CreatePDF(io.StringIO(filled_html), dest=pdf_buffer)
+    pisa.CreatePDF(io.StringIO(filled_html), dest=pdf_buffer)
 
-    if pisa_status.err:
-        st.error("❌ PDF generation failed")
-    else:
-        st.success("✅ PDF generated successfully!")
-        st.download_button(
-            label="📥 Download PDF",
-            data=pdf_buffer.getvalue(),
-            file_name="Authority_Letter.pdf",
-            mime="application/pdf"
-        )
+    st.success("✅ PDF Generated!")
+    st.download_button("📄 Download PDF", pdf_buffer.getvalue(), file_name="Authority_Letter.pdf", mime="application/pdf")
